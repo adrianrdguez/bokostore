@@ -8,8 +8,6 @@ import Shop from '../components/shop'
 export const getServerSideProps = async () => {
   const res = await fetch('https://technical-frontend-api.bokokode.com/api/products');
   const data = await res.json();
-
-  console.log(data.data.data)
   return {
     props: { featured: data.data.data }
   }
