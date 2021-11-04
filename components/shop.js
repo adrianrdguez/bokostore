@@ -80,12 +80,12 @@ export default function Shop({ cart }) {
             <div className="flex flex-row justify-center">
                 {actualPagination ? actualPagination.links.map((link) => {
                     if (link.label.includes("&laquo; Previous")) {
-                        return <div key={link.label} className="mx-2" onClick={() => { setPage(link.url) }}> {'<'} </div>
+                        return <div key={link.label} className="mx-2 cursor-pointer" onClick={() => { setPage(link.url) }}> {'<'} </div>
                     }
                     if (link.label.includes("Next &raquo;")) {
-                        return <div key={link.label} className="mx-2" onClick={() => { setPage(link.url) }}> {'>'} </div>
+                        return <div key={link.label} className="mx-2 cursor-pointer" onClick={() => { setPage(link.url) }}> {'>'} </div>
                     }
-                    return <div className={`mx-2 ${link.active ? "underline" : ""}`} key={link.label} onClick={() => { setPage(link.url) }}>{link.label}</div>
+                    return <div className={`mx-2 cursor-pointer ${link.active ? "underline" : ""}`} key={link.label} onClick={() => { setPage(link.url) }}>{link.label}</div>
                 }) : ''}
             </div>
         </div>
