@@ -21,6 +21,11 @@ export default function Header({ cart, clearCart }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => { if (cart.length > 0) { setOpen(true) } }
     const handleClose = () => setOpen(false);
+    const state = 'invisible';
+
+    if (cart.length > 0) {
+        state = 'visible';
+    }
 
     return (
         <>
@@ -29,7 +34,7 @@ export default function Header({ cart, clearCart }) {
                     BEJAMAS_
                 </div>
                 <div className=' flex m-auto mr-8 mt-3'>
-                    <Button onClick={handleOpen}>{cart.length}</Button>
+                    <Button className={`${state}`} onClick={handleOpen}>{cart.length}</Button>
                     <Modal
                         open={open}
                         onClose={handleClose}
